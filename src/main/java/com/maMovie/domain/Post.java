@@ -1,11 +1,13 @@
 package com.maMovie.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="post")
@@ -20,6 +22,9 @@ public class Post implements Serializable {
 	private String body;
 	
 	private User user;
+	
+	@DBRef(lazy=true)
+	private List<Comment> comments = new ArrayList<>();
 	
 	public Post() {
 	}
@@ -63,6 +68,19 @@ public class Post implements Serializable {
 
 	public void setBody(String body) {
 		this.body = body;
+	}
+
+	
+	public Instant getDate() {
+		return date;
+	}
+
+	public void setDate(Instant date) {
+		this.date = date;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
 	}
 
 	public User getUser() {

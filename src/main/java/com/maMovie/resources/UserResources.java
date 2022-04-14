@@ -50,5 +50,10 @@ public class UserResources {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@PostMapping(value="/{id}")
+	public ResponseEntity<User> update(@RequestBody User obj, @PathVariable String id){
+		userService.update(obj);
+		return ResponseEntity.noContent().build();
+	}
 	
 }

@@ -27,4 +27,21 @@ public class PostServices {
 	public Post insert(Post obj) {
 		return postRepository.save(obj);
 	}
+	
+	public void delete(String id) {
+		 postRepository.deleteById(id);
+	}
+	
+	public Post update(Post obj) {
+		Post newObj = findById(obj.getId());
+		updateData(newObj, obj);
+		return postRepository.save(newObj);
+	}
+
+	private void updateData(Post newObj, Post obj) {
+		newObj.setBody(obj.getBody());
+		newObj.setInstant(obj.getInstant());
+		newObj.setTitle(obj.getTitle());
+		
+	}
 }

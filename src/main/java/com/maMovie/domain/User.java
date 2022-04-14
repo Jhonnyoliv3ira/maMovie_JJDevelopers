@@ -1,9 +1,12 @@
 package com.maMovie.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="user")
@@ -17,6 +20,9 @@ public class User implements Serializable {
 	private String email;
 	private String login;
 	private String password;
+	
+	@DBRef(lazy=true)
+	private List<Post> posts = new ArrayList<>();
 	
 	public User() {
 		
@@ -73,6 +79,11 @@ public class User implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	
+	public List<Post> getPosts() {
+		return posts;
 	}
 
 	@Override
