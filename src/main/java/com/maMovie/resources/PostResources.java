@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.maMovie.domain.Post;
+import com.maMovie.resources.util.URL;
 import com.maMovie.services.PostServices;
 
 @RestController
@@ -56,4 +58,5 @@ public class PostResources {
 		postServices.delete(id);
 		return ResponseEntity.noContent().build();
 	}
+	
 }

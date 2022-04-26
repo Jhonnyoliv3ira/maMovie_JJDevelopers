@@ -42,6 +42,6 @@ public class PostServices {
 		newObj.setBody(obj.getBody());
 		newObj.setInstant(obj.getInstant());
 		newObj.setTitle(obj.getTitle());
-		
 	}
+	
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.maMovie.domain.User;
+import com.maMovie.resources.util.URL;
 import com.maMovie.services.UserServices;
 
 @RestController
